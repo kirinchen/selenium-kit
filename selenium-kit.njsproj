@@ -41,6 +41,9 @@
     <Folder Include="spider\" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Index.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="spider\Spider.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>

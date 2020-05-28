@@ -15,18 +15,31 @@ export class SeleniumKit {
         return { By, Key, until };
     }
 
-    public async init(driverName: string = 'chrome') {
-        this._driver = await new Builder().forBrowser(driverName).build();
+    public async init(bf: Builder): Promise<WebDriver> {
+        this._driver = await bf.build();
+        return this._driver;
     }
 
-    public async findEditDom(slct: string): Promise< EditDOM> {
+    public async findEditDom(slct: string): Promise<EditDOM> {
         let dom = await this._driver.findElement(By.css(slct));
-        return new EditDOM(slct,dom);
+        return new EditDOM(slct, dom);
     }
 
 
-    public async setAttribute( slct: string, attr: string, val: any) {
+    public async setAttribute(slct: string, attr: string, val: any) {
         return await SeleniumUtils.setAttribute(this._driver, slct, attr, val);
+    }
+
+    public async hasClass(element: WebElement, htmlClass: string) {
+        let classes = (await element.getAttribute("class")).split(' ');
+        if (classes != null) {
+            for (let classAttrI in classes) {
+                if (classes[classAttrI] == htmlClass) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
 }

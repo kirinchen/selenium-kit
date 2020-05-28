@@ -1,4 +1,4 @@
-import { By, until, WebDriver, WebElement } from "selenium-webdriver";
+import { Builder, By, until, WebDriver, WebElement } from "selenium-webdriver";
 export declare class SeleniumKit {
     _driver: WebDriver;
     get driver(): WebDriver;
@@ -7,9 +7,10 @@ export declare class SeleniumKit {
         Key: import("selenium-webdriver/lib/input").IKey;
         until: typeof until;
     };
-    init(driverName?: string): Promise<void>;
+    init(bf: Builder): Promise<WebDriver>;
     findEditDom(slct: string): Promise<EditDOM>;
     setAttribute(slct: string, attr: string, val: any): Promise<unknown>;
+    hasClass(element: WebElement, htmlClass: string): Promise<boolean>;
 }
 export declare class EditDOM {
     select: string;

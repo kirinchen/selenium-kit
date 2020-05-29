@@ -30,7 +30,7 @@ export class SeleniumKit {
         return await SeleniumUtils.setAttribute(this._driver, slct, attr, val);
     }
 
-    public async hasClass(element: WebElement, htmlClass: string) {
+    public static async hasClass(element: WebElement, htmlClass: string) {
         let classes = (await element.getAttribute("class")).split(' ');
         if (classes != null) {
             for (let classAttrI in classes) {
@@ -40,6 +40,11 @@ export class SeleniumKit {
             }
         }
         return false;
+    }
+
+    public static async getText(element: WebElement, cssSel: string): Promise<string> {
+        let e = await element.findElement(By.css(cssSel));
+        return await e.getText();
     }
 
 }

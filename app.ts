@@ -9,7 +9,7 @@ let a = async () => {
     await sk.init(new Builder().forBrowser('chrome'));
     await sk.driver.get('https://store.line.me/stickershop/product/1149795/?ref=Desktop');
     let em = await sk.driver.findElement(By.css(".MdCMN09DetailView"));
-    let emb = await sk.hasClass(em, "MdCMN09DetailView");
+    let emb = await SeleniumKit.hasClass(em, "MdCMN09DetailView");
     console.log("emb:" + emb);
 
 };

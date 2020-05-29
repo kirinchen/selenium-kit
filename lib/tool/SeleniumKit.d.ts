@@ -10,7 +10,8 @@ export declare class SeleniumKit {
     init(bf: Builder): Promise<WebDriver>;
     findEditDom(slct: string): Promise<EditDOM>;
     setAttribute(slct: string, attr: string, val: any): Promise<unknown>;
-    hasClass(element: WebElement, htmlClass: string): Promise<boolean>;
+    static hasClass(element: WebElement, htmlClass: string): Promise<boolean>;
+    static getText(element: WebElement, cssSel: string): Promise<string>;
 }
 export declare class EditDOM {
     select: string;

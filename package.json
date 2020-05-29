@@ -1,6 +1,6 @@
 {
   "name": "selenium-kit",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "selenium-kit",
   "types": "lib/index.d.ts",
   "author": "Kirin",
